@@ -72,5 +72,5 @@ if st.sidebar.button("O aplikaci"):
     - Matplotlib
     - ReportLab
 
-    Autor: *Vaše jméno*
-    """)
+    Autor: *Zdeněk Holub 277850@vutbr.cz*
+    """)   
