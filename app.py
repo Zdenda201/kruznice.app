@@ -49,9 +49,9 @@ def generate_pdf(fig):
     flow.append(Spacer(1, 12))
 
     # Parametry
-    flow.append(Paragraph(f"Střed: ({x_center}, {y_center}) m", styles['Normal']))
-    flow.append(Paragraph(f"Poloměr: {radius} m", styles['Normal']))
-    flow.append(Paragraph(f"Počet bodů: {num_points}", styles['Normal']))
+    flow.append(Paragraph(f"Stred: ({x_center}, {y_center}) m", styles['Normal']))
+    flow.append(Paragraph(f"Polomer: {radius} m", styles['Normal']))
+    flow.append(Paragraph(f"Pocet bodů: {num_points}", styles['Normal']))
     flow.append(Paragraph(f"Barva bodů: {color}", styles['Normal']))
     flow.append(Spacer(1, 24))
 
