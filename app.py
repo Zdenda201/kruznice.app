@@ -60,8 +60,8 @@ def generate_pdf(fig):
     flow.append(Spacer(1, 24))
 
     # Informace o autorovi
-    flow.append(Paragraph("<b>Autor:</b> Zdenek Holub, styles['Normal']))
-    flow.append(Paragraph("<b>Kontakt:</b> 277850@vutbr.cz", styles['Normal']))
+    flow.append(Paragraph("<b>Autor:</b> Vaše jméno", styles['Normal']))
+    flow.append(Paragraph("<b>Kontakt:</b> vas@email.cz", styles['Normal']))
     flow.append(Paragraph("Použité technologie: Python, Streamlit, Matplotlib, ReportLab", styles['Normal']))
 
     # Vytvoření PDF souboru
