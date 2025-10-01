@@ -1,7 +1,7 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
 from reportlab.lib.styles import getSampleStyleSheet
 
 # --- Nastavení aplikace ---
@@ -35,28 +35,44 @@ ax.legend()
 st.pyplot(fig)
 
 # --- Export do PDF ---
-def generate_pdf():
+def generate_pdf(fig):
+    # Uložení obrázku z matplotlib do PNG
+    fig.savefig("circle_plot.png")
+
+    # Vytvoření PDF
     doc = SimpleDocTemplate("output.pdf")
     styles = getSampleStyleSheet()
     flow = []
 
+    # Titulek
     flow.append(Paragraph("<b>Body na kružnici</b>", styles['Title']))
     flow.append(Spacer(1, 12))
-    flow.append(Paragraph(f"Stred: ({x_center}, {y_center}) m", styles['Normal']))
-    flow.append(Paragraph(f"Polomer: {radius} m", styles['Normal']))
-    flow.append(Paragraph(f"Pocet bodů: {num_points}", styles['Normal']))
+
+    # Parametry
+    flow.append(Paragraph(f"Střed: ({x_center}, {y_center}) m", styles['Normal']))
+    flow.append(Paragraph(f"Poloměr: {radius} m", styles['Normal']))
+    flow.append(Paragraph(f"Počet bodů: {num_points}", styles['Normal']))
     flow.append(Paragraph(f"Barva bodů: {color}", styles['Normal']))
     flow.append(Spacer(1, 24))
-    flow.append(Paragraph("<b>Autor:</b> Zdenek Holub", styles['Normal']))
+
+    # Obrázek do PDF
+    flow.append(Image("circle_plot.png", width=400, height=400))
+    flow.append(Spacer(1, 24))
+
+    # Informace o autorovi
+    flow.append(Paragraph("<b>Autor:</b> Zdenek Holub, styles['Normal']))
     flow.append(Paragraph("<b>Kontakt:</b> 277850@vutbr.cz", styles['Normal']))
     flow.append(Paragraph("Použité technologie: Python, Streamlit, Matplotlib, ReportLab", styles['Normal']))
 
+    # Vytvoření PDF souboru
     doc.build(flow)
+
+    # Tlačítko ke stažení v aplikaci
     with open("output.pdf", "rb") as file:
         st.download_button("Stáhnout PDF", file, file_name="body_na_kruznici.pdf")
 
 if st.button("Vytvořit PDF"):
-    generate_pdf()
+    generate_pdf(fig)
 
 # --- Informace o aplikaci ---
 if st.sidebar.button("O aplikaci"):
@@ -72,5 +88,5 @@ if st.sidebar.button("O aplikaci"):
     - Matplotlib
     - ReportLab
 
-    Autor: *Zdeněk Holub 277850@vutbr.cz*
-    """)   
+    Autor: *Vaše jméno*
+    """)
