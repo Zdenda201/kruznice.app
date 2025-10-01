@@ -47,8 +47,8 @@ def generate_pdf():
     flow.append(Paragraph(f"Počet bodů: {num_points}", styles['Normal']))
     flow.append(Paragraph(f"Barva bodů: {color}", styles['Normal']))
     flow.append(Spacer(1, 24))
-    flow.append(Paragraph("<b>Autor:</b> Vaše jméno", styles['Normal']))
-    flow.append(Paragraph("<b>Kontakt:</b> vas@email.cz", styles['Normal']))
+    flow.append(Paragraph("<b>Autor:</b> Zdeněk Holub", styles['Normal']))
+    flow.append(Paragraph("<b>Kontakt:</b> 277850@vutbr.cz", styles['Normal']))
     flow.append(Paragraph("Použité technologie: Python, Streamlit, Matplotlib, ReportLab", styles['Normal']))
 
     doc.build(flow)
