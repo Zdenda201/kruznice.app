@@ -42,12 +42,12 @@ def generate_pdf():
 
     flow.append(Paragraph("<b>Body na kružnici</b>", styles['Title']))
     flow.append(Spacer(1, 12))
-    flow.append(Paragraph(f"Střed: ({x_center}, {y_center}) m", styles['Normal']))
-    flow.append(Paragraph(f"Poloměr: {radius} m", styles['Normal']))
-    flow.append(Paragraph(f"Počet bodů: {num_points}", styles['Normal']))
+    flow.append(Paragraph(f"Stred: ({x_center}, {y_center}) m", styles['Normal']))
+    flow.append(Paragraph(f"Polomer: {radius} m", styles['Normal']))
+    flow.append(Paragraph(f"Pocet bodů: {num_points}", styles['Normal']))
     flow.append(Paragraph(f"Barva bodů: {color}", styles['Normal']))
     flow.append(Spacer(1, 24))
-    flow.append(Paragraph("<b>Autor:</b> Zdeněk Holub", styles['Normal']))
+    flow.append(Paragraph("<b>Autor:</b> Zdenek Holub", styles['Normal']))
     flow.append(Paragraph("<b>Kontakt:</b> 277850@vutbr.cz", styles['Normal']))
     flow.append(Paragraph("Použité technologie: Python, Streamlit, Matplotlib, ReportLab", styles['Normal']))
 
