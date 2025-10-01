@@ -12,8 +12,8 @@ st.title("Body na kružnici")
 x_center = st.number_input("Souřadnice středu X [m]", value=0.0)
 y_center = st.number_input("Souřadnice středu Y [m]", value=0.0)
 radius = st.number_input("Poloměr [m]", value=5.0, min_value=0.1)
-num_points = st.slider("Počet bodů", min_value=1, max_value=100, value=8)
-color = st.color_picker("Barva bodů", value="#ff0000")
+num_points = st.slider("Počet bodu", min_value=1, max_value=100, value=8)
+color = st.color_picker("Barva bodu", value="#ff0000")
 
 # --- Výpočet souřadnic bodů ---
 angles = np.linspace(0, 2*np.pi, num_points, endpoint=False)
